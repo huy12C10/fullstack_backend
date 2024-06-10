@@ -1,14 +1,23 @@
-const http = require('http');
+const express = require('express')
+const app = express()
+const port = 8081
 
-const hostname = 'localhost';// địa chỉ localhost
-const port = 6969;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n with nodejs');
-});
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+//khai báo route
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.get('/abc', (req, res) => {
+  res.send('check abc')
+})
+
+app.get('/huy', (req, res) => {
+  res.send('<h1>check abc</h1>')
+})
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
